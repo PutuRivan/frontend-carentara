@@ -1,3 +1,4 @@
+// src/components/ui/HeroSection.tsx
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import DecryptedText from '@/components/react-bits/TextAnimations/DecryptedText/DecryptedText'
@@ -33,7 +34,7 @@ export function HeroSection() {
         </motion.div>
 
         <motion.div initial={{ scale: 0.8 }} animate={{ scale: 1 }} transition={{ delay: 0.9 }}>
-          <Button size="lg" className="bg-white text-black hover:bg-accent hover:text-white cursor-pointer">
+          <Button size="lg" className="bg-white text-black hover:bg-accent hover:text-white">
             Book Now
           </Button>
         </motion.div>

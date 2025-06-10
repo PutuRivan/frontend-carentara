@@ -1,7 +1,6 @@
 // src/components/base/Navbar.tsx
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import Navlink from './navlink'
 
 export function Navbar() {
   return (
@@ -15,16 +14,20 @@ export function Navbar() {
         {/* Links */}
         <ul className="flex space-x-6">
           {['Home', 'Cars', 'About', 'Contact'].map((label) => (
-            <Navlink key={label} label={label} />
+            <li key={label}>
+              <Link href={`/${label.toLowerCase()}`} className="hover:text-accent">
+                {label}
+              </Link>
+            </li>
           ))}
         </ul>
 
         {/* Actions */}
         <div className="flex items-center space-x-2">
-          <Button variant="outline" className="text-accent hover:bg-accent-light hover:text-white cursor-pointer">
+          <Button variant="outline" className="text-accent hover:bg-accent-light hover:text-white">
             Log In
           </Button>
-          <Button variant="default" className="cursor-pointer" >Sign Up</Button>
+          <Button>Sign Up</Button>
         </div>
       </nav>
     </header>
