@@ -105,7 +105,7 @@ const item = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } };
 
 export function TopPicksSection() {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-6">
+    <section className="max-w-7xl mx-auto px-6 py-4">
       <h2 className="text-3xl font-bold mb-2 text-start">Top picks vehicle this month</h2>
       <p className="text-start text-gray-600 mb-8">
         Experience the epitome of amazing journey with our top picks.
@@ -124,7 +124,7 @@ export function TopPicksSection() {
               <span className="absolute top-3 left-3 bg-white/80 text-gray-800 text-xs font-medium px-2 py-1 rounded-full shadow">
                 {car.category}
               </span>
-              <CardHeader className="p-0">
+              <CardHeader className="p-0 pt-5">
                 <div className="relative w-full aspect-[3/2]">
                   <Image
                     src={car.image}
