@@ -1,7 +1,8 @@
-// src/components/ui/HeroSection.tsx
+"use client";
+
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
-import DecryptedText from '@/components/react-bits/TextAnimations/DecryptedText (lupa bilang pake React-bits)'
+import DecryptedText from '@/components/react-bits/TextAnimations/DecryptedText/DecryptedText'
 import { motion } from 'framer-motion'
 
 export function HeroSection() {
@@ -9,7 +10,7 @@ export function HeroSection() {
     <section className="relative h-[600px] w-full overflow-hidden">
       {/* Background image */}
       <Image
-        src="/hero_section.jpg"
+        src="/hero_section1.jpg"
         alt="Car on the road"
         fill
         className="object-cover"
