@@ -2,16 +2,27 @@
 "use client";
 
 import Marquee from "@/components/ui/marquee";
-import { Tag } from "@/components/ui/tag";      // your ShadcnUI Tag component
+import { Tag } from "@/components/ui/tag"; // your ShadcnUI Tag component
 import { motion } from "framer-motion";
 import React from "react";
 
 const CITIES = [
-  "Bandung", "Jakarta", "Bali", "Sydney",
-  "New York", "Seoul", "Tokyo", "Paris",
-  "Jeju Island", "Los Angeles", "Berlin",
-  "Munich", "Yogyakarta", "Liverpool",
-  "Glasgow", "Birmingham"
+  "Bandung",
+  "Jakarta",
+  "Bali",
+  "Sydney",
+  "New York",
+  "Seoul",
+  "Tokyo",
+  "Paris",
+  "Jeju Island",
+  "Los Angeles",
+  "Berlin",
+  "Munich",
+  "Yogyakarta",
+  "Liverpool",
+  "Glasgow",
+  "Birmingham",
 ];
 
 export function DiscoverSection() {
@@ -25,18 +36,17 @@ export function DiscoverSection() {
       </p>
 
       {/* Animata marquee: multiple lines, auto-repeat */}
-      <Marquee              /* tweak to taste */
-      >
+      <Marquee /* tweak to taste */>
         {Array.from({ length: 2 }).map((_, row) => (
           <motion.div
             key={row}
             className="flex space-x-4"
             // optional: sync rows with slight offset
             animate={{ x: row % 2 === 0 ? [0, -200] : [-200, 0] }}
-            transition={{ 
-              repeat: Infinity, 
-              duration: 10, 
-              ease: "linear" 
+            transition={{
+              repeat: Infinity,
+              duration: 10,
+              ease: "linear",
             }}
           >
             {CITIES.map((city) => (
@@ -47,18 +57,17 @@ export function DiscoverSection() {
           </motion.div>
         ))}
       </Marquee>
-      <Marquee reverse            /* tweak to taste */
-      >
+      <Marquee reverse /* tweak to taste */>
         {Array.from({ length: 2 }).map((_, row) => (
           <motion.div
             key={row}
             className="flex space-x-4"
             // optional: sync rows with slight offset
             animate={{ x: row % 2 === 0 ? [-200, 0] : [0, 200] }}
-            transition={{ 
-              repeat: Infinity, 
-              duration: 10, 
-              ease: "linear" 
+            transition={{
+              repeat: Infinity,
+              duration: 10,
+              ease: "linear",
             }}
           >
             {CITIES.map((city) => (
@@ -69,18 +78,17 @@ export function DiscoverSection() {
           </motion.div>
         ))}
       </Marquee>
-      <Marquee              /* tweak to taste */
-      >
+      <Marquee /* tweak to taste */>
         {Array.from({ length: 2 }).map((_, row) => (
           <motion.div
             key={row}
             className="flex space-x-4"
             // optional: sync rows with slight offset
             animate={{ x: row % 2 === 0 ? [0, -200] : [-200, 0] }}
-            transition={{ 
-              repeat: Infinity, 
-              duration: 10, 
-              ease: "linear" 
+            transition={{
+              repeat: Infinity,
+              duration: 10,
+              ease: "linear",
             }}
           >
             {CITIES.map((city) => (
@@ -91,18 +99,17 @@ export function DiscoverSection() {
           </motion.div>
         ))}
       </Marquee>
-      <Marquee reverse            /* tweak to taste */
-      >
+      <Marquee reverse /* tweak to taste */>
         {Array.from({ length: 2 }).map((_, row) => (
           <motion.div
             key={row}
             className="flex space-x-4"
             // optional: sync rows with slight offset
             animate={{ x: row % 2 === 0 ? [-200, 0] : [0, 200] }}
-            transition={{ 
-              repeat: Infinity, 
-              duration: 10, 
-              ease: "linear" 
+            transition={{
+              repeat: Infinity,
+              duration: 10,
+              ease: "linear",
             }}
           >
             {CITIES.map((city) => (
