@@ -1,7 +1,7 @@
 // src/components/ui/HeroSection.tsx
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
-import DecryptedText from '@/components/react-bits/TextAnimations/DecryptedText (lupa bilang pake React-bits)'
+import DecryptedText from '@/components/react-bits/TextAnimations/DecryptedText/DecryptedText'
 import { motion } from 'framer-motion'
 
 export function HeroSection() {
