@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { HeroSection } from "@/components/section/HeroSection";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from 'framer-motion';
