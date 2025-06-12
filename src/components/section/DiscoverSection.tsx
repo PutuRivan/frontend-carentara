@@ -1,28 +1,53 @@
 // components/PopularRentalsMarquee.tsx
 "use client";
 
-import Marquee from "@/components/ui/marquee";
+import Marquee from "@/components/animata/marquee";
 import { Tag } from "@/components/ui/tag"; // your ShadcnUI Tag component
 import { motion } from "framer-motion";
 import React from "react";
 
-const CITIES = [
-  "Bandung",
+const CITIES1 = [
   "Jakarta",
-  "Bali",
-  "Sydney",
-  "New York",
-  "Seoul",
-  "Tokyo",
-  "Paris",
-  "Jeju Island",
-  "Los Angeles",
-  "Berlin",
-  "Munich",
+  "Bandung",
+  "Surabaya",
+  "Medan",
+  "Semarang",
   "Yogyakarta",
-  "Liverpool",
-  "Glasgow",
-  "Birmingham",
+  "Makassar",
+  "Palembang",
+];
+
+const CITIES2 = [
+  "Denpasar",
+  "Padang",
+  "Balikpapan",
+  "Manado",
+  "Batam",
+  "Pekanbaru",
+  "Banjarmasin",
+  "Malang",
+];
+
+const CITIES3 = [
+  "Samarinda",
+  "Tangerang",
+  "Pontianak",
+  "Bandar Lampung",
+  "Jayapura",
+  "Mataram",
+  "Kendari",
+  "Cirebon",
+];
+
+const CITIES4 = [
+  "Samarinda",
+  "Tangerang",
+  "Pontianak",
+  "Bandar Lampung",
+  "Jayapura",
+  "Mataram",
+  "Kendari",
+  "Cirebon",
 ];
 
 export function DiscoverSection() {
@@ -49,7 +74,7 @@ export function DiscoverSection() {
               ease: "linear",
             }}
           >
-            {CITIES.map((city) => (
+            {CITIES1.map((city) => (
               <Tag key={`${city}-${row}`} variant="outline">
                 Car Rental in {city}
               </Tag>
@@ -70,7 +95,7 @@ export function DiscoverSection() {
               ease: "linear",
             }}
           >
-            {CITIES.map((city) => (
+            {CITIES2.map((city) => (
               <Tag key={`${city}-${row}`} variant="outline">
                 Car Rental in {city}
               </Tag>
@@ -91,7 +116,7 @@ export function DiscoverSection() {
               ease: "linear",
             }}
           >
-            {CITIES.map((city) => (
+            {CITIES3.map((city) => (
               <Tag key={`${city}-${row}`} variant="outline">
                 Car Rental in {city}
               </Tag>
@@ -112,7 +137,7 @@ export function DiscoverSection() {
               ease: "linear",
             }}
           >
-            {CITIES.map((city) => (
+            {CITIES4.map((city) => (
               <Tag key={`${city}-${row}`} variant="outline">
                 Car Rental in {city}
               </Tag>

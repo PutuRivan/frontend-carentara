@@ -108,7 +108,7 @@ const item = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } };
 
 export function TopPicksSection() {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-4">
+    <section className="max-w-9/10 mx-auto">
       <h2 className="text-3xl font-bold mb-2 text-start">
         Top picks vehicle this month
       </h2>

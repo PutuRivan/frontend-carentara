@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 
 export function HeroSection() {
   return (
-    <section className="relative h-[600px] w-full overflow-hidden">
+    <section className="relative h-[480px] w-full overflow-hidden">
       {/* Background image */}
       <Image
         src="/hero_section1.jpg"
