@@ -15,7 +15,7 @@ const logos = [
 
 export function BrandSection() {
   return (
-    <section className="max-w-full mx-px px-2 pb-12">
+    <section className="max-w-full mx-px px-2 pb-24">
       <div className="flex items-center justify-center flex-wrap gap-24 opacity-100">
         {logos.map((src) => (
           <div key={src} className="h-8 w-auto">
