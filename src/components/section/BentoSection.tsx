@@ -17,7 +17,7 @@ export function BentoSection() {
           href="#"
           cta="Booking Now"
           Icon={Compass}
-          className="col-span-1 sm:col-span-2 sm:row-span-2 relative"
+          className="col-span-1 sm:col-span-2 sm:row-span-2 relative cursor-pointer"
           background={
             <div className="absolute inset-0">
               <Image

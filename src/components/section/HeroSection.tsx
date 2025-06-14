@@ -29,7 +29,7 @@ export function HeroSection() {
           transition={{ delay: 0.3 }}
         >
           <h1 className="text-4xl font-bold text-white">
-            <DecryptedText text="Rent a Car for Every Journey" speed={0.3} />
+            <DecryptedText text="Rent a Car for Every Journey" speed={80} sequential animateOn="view" />
           </h1>
         </motion.div>
 

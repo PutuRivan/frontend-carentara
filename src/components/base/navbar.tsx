@@ -48,10 +48,9 @@ export function Navbar() {
           <motion.header
             className={`
               fixed top-0 w-full z-50
-              ${
-                scrolled
-                  ? "backdrop-blur-sm bg-white/30 shadow-md"
-                  : "bg-transparent"
+              ${scrolled
+                ? "backdrop-blur-sm bg-white/30 shadow-md"
+                : "bg-transparent"
               }
             `}
             initial={{ y: -100, opacity: 0 }}
@@ -63,9 +62,8 @@ export function Navbar() {
               {/* Logo */}
               <Link
                 href="/"
-                className={`text-2xl font-bold ${
-                  scrolled ? "text-gray-800" : "text-white"
-                }`}
+                className={`text-2xl font-bold ${scrolled ? "text-gray-800" : "text-white"
+                  }`}
               >
                 Carentara
               </Link>
@@ -97,7 +95,9 @@ export function Navbar() {
                         ${scrolled ? "text-gray-800" : "text-white"}
                       `}
                 >
-                  Log In
+                  <Link href={"/login"}>
+                    Log In
+                  </Link>
                 </Button>
 
                 <div
@@ -118,7 +118,9 @@ export function Navbar() {
                         ${scrolled ? "text-gray-800" : "text-white"}
                       `}
                 >
-                  Sign Up
+                  <Link href={"/register"}>
+                    Sign Up
+                  </Link>
                 </Button>
               </div>
 
