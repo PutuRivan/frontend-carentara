@@ -14,6 +14,7 @@ const NAV_LINKS = [
   { label: "Contact", href: "/contact" },
 ];
 
+
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { scrollY } = useScroll();
