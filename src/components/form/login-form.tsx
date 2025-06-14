@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { useState } from "react";
-import { Eye, EyeClosedIcon, EyeIcon } from "lucide-react";
+import { EyeClosedIcon, EyeIcon } from "lucide-react";
 
 const formSchema = z.object({
   email: z.string().email({
