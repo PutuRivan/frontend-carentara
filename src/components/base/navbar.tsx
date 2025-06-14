@@ -63,7 +63,7 @@ export function Navbar() {
               <Link
                 href="/"
                 className={`text-2xl font-bold ${
-                  scrolled ? "text-gray-800" : "text-white"
+                  scrolled ? "text-gray-800" : "text-neutral-300"
                 }`}
               >
                 Carentara
@@ -77,7 +77,7 @@ export function Navbar() {
                       href={link.href}
                       className={`
                         hover:underline transition-colors
-                        ${scrolled ? "text-gray-800" : "text-white"}
+                        ${scrolled ? "text-gray-800" : "text-neutral-300"}
                       `}
                     >
                       {link.label}
@@ -92,7 +92,7 @@ export function Navbar() {
                   variant="ghost"
                   size="sm"
                   className={`
-                        hover:text-neutral-800 transition-colors
+                        hover:text-neutral-600 transition-colors
                         ${scrolled ? "text-gray-800" : "text-white"}
                       `}
                 >

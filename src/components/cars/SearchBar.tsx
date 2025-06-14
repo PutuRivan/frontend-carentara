@@ -27,7 +27,7 @@ const MODELS = {
 
 export function SearchBar() {
   const [brand, setBrand] = useState("Any");
-  const [modelOptions, setModelOptions] = useState<string[]>(MODELS["Any"]);
+  const [modelOptions, setModelOptions] = useState<string[]>(MODELS.Any);
   const [model, setModel] = useState("Any");
   const [location, setLocation] = useState("");
   const [fromDate, setFromDate] = useState("");
@@ -48,7 +48,10 @@ export function SearchBar() {
   return (
     <motion.form
       onSubmit={onSearch}
-      className="grid grid-cols-1 gap-4 sm:grid-cols-4 sm:items-end max-w-7xl mx-auto px-6 py-8 bg-white rounded-xl shadow"
+      className={
+        "grid grid-cols-1 gap-4 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 " +
+        "items-end max-w-[90%] mx-auto px-4 sm:px-6 py-8 bg-white rounded-xl shadow"
+      }
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -62,9 +65,7 @@ export function SearchBar() {
           </SelectTrigger>
           <SelectContent>
             {BRANDS.map((b) => (
-              <SelectItem key={b} value={b}>
-                {b}
-              </SelectItem>
+              <SelectItem key={b} value={b}> {b} </SelectItem>
             ))}
           </SelectContent>
         </Select>
@@ -79,16 +80,14 @@ export function SearchBar() {
           </SelectTrigger>
           <SelectContent>
             {modelOptions.map((m) => (
-              <SelectItem key={m} value={m}>
-                {m}
-              </SelectItem>
+              <SelectItem key={m} value={m}> {m} </SelectItem>
             ))}
           </SelectContent>
         </Select>
       </div>
 
       {/* Location */}
-      <div>
+      <div className="sm:col-span-2 md:col-span-2 lg:col-span-2">
         <label className="block text-sm font-medium mb-1">Location</label>
         <Input
           placeholder="City, airport, station"
@@ -99,7 +98,7 @@ export function SearchBar() {
       </div>
 
       {/* Date Range */}
-      <div className="grid grid-cols-2 gap-2">
+      <div className="sm:col-span-2 md:col-span-2 lg:col-span-2 grid grid-cols-2 gap-4 justify-items-end">
         <div>
           <label className="block text-sm font-medium mb-1">From</label>
           <div className="relative">
@@ -109,7 +108,10 @@ export function SearchBar() {
               onChange={(e) => setFromDate(e.target.value)}
               className="w-full pl-10"
             />
-            <CalendarIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+            <CalendarIcon
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+              size={20}
+            />
           </div>
         </div>
         <div>
@@ -121,13 +123,16 @@ export function SearchBar() {
               onChange={(e) => setToDate(e.target.value)}
               className="w-full pl-10"
             />
-            <CalendarIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
+            <CalendarIcon
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+              size={20}
+            />
           </div>
         </div>
       </div>
 
       {/* Search CTA */}
-      <div className="sm:col-span-4 md:col-span-1">
+      <div className="sm:col-span-4 md:col-span-6 lg:col-span-1">
         <Button type="submit" className="w-full h-12 bg-neutral-700 text-white hover:bg-accent-light">
           Search
         </Button>
