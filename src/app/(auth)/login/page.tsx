@@ -10,7 +10,6 @@ import { FcGoogle } from "react-icons/fc";
 export default function LoginPage() {
   return (
     <div className="flex h-screen overflow-hidden">
-      {/* Left: Hero */}
       <motion.div
         className="relative hidden w-1/2 lg:block"
         initial={{ x: -100, opacity: 0 }}
@@ -18,7 +17,7 @@ export default function LoginPage() {
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <Image
-          src="/auth/hero.jpg"     // your background image
+          src="/auth/hero.jpg"
           alt="Travel horizon"
           fill
           className="object-cover"
@@ -35,7 +34,6 @@ export default function LoginPage() {
         </div>
       </motion.div>
 
-      {/* Right: Glass Form Panel */}
       <motion.div
         className="flex w-full lg:w-1/2 items-center justify-center bg-gray-50"
         initial={{ x: 100, opacity: 0 }}
@@ -58,21 +56,18 @@ export default function LoginPage() {
 
           <LoginForm />
 
-          {/* Forgot password */}
           <div className="mt-2 text-right">
             <Link href="/auth/forgot-password" className="text-sm text-neutral-700 hover:underline">
               Forgot password?
             </Link>
           </div>
 
-          {/* Or divider */}
           <div className="my-6 flex items-center">
             <div className="flex-1 h-px bg-white/50" />
             <span className="px-2 text-black">or</span>
             <div className="flex-1 h-px bg-white/50" />
           </div>
-
-          {/* Social login */}
+   
           <Button
             variant="outline"
             className="w-full flex items-center justify-center gap-2 mb-4 text-black"
@@ -81,7 +76,6 @@ export default function LoginPage() {
             Sign in with Google
           </Button>
 
-          {/* Sign up link */}
           <p className="text-center text-neutral-900">
             Are you new?{" "}
             <Link href="/register" className="font-semibold hover:underline">

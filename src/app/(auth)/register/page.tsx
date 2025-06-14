@@ -10,7 +10,6 @@ import { FcGoogle } from "react-icons/fc";
 export default function RegisterPage() {
   return (
     <div className="flex h-screen overflow-hidden">
-      {/* Left: Hero */}
       <motion.div
         className="relative hidden w-1/2 lg:block"
         initial={{ x: -100, opacity: 0 }}
@@ -18,7 +17,7 @@ export default function RegisterPage() {
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <Image
-          src="/auth/car-driving.jpg"      // replace with your register hero image if different
+          src="/auth/car-driving.jpg"      
           alt="Travel horizon"
           fill
           className="object-cover"
@@ -35,7 +34,6 @@ export default function RegisterPage() {
         </div>
       </motion.div>
 
-      {/* Right: Glass Form Panel */}
       <motion.div
         className="flex w-full lg:w-1/2 items-center justify-center bg-gray-50"
         initial={{ x: 100, opacity: 0 }}
@@ -58,7 +56,6 @@ export default function RegisterPage() {
 
           <RegisterForm />
 
-          {/* Already have account */}
           <div className="mt-4 text-center">
             <span className="text-sm text-neutral-700">
               Already have an account?{" "}
@@ -71,14 +68,12 @@ export default function RegisterPage() {
             </Link>
           </div>
 
-          {/* Or divider */}
           <div className="my-6 flex items-center">
             <div className="flex-1 h-px bg-white/50" />
             <span className="px-2 text-black">or</span>
             <div className="flex-1 h-px bg-white/50" />
           </div>
 
-          {/* Social signup */}
           <Button
             variant="outline"
             className="w-full flex items-center justify-center gap-2 mb-2 text-black"
