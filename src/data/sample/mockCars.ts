@@ -32,7 +32,7 @@ export const mockCars: Car[] = [
     imageUrl: "/cars/car sample.jpg",
   },
   {
-    id: "1",
+    id: "3",
     brand: "Porsche",
     model: "911 Carrera GTS",
     seats: 2,
@@ -42,7 +42,7 @@ export const mockCars: Car[] = [
     imageUrl: "/cars/car sample.jpg",
   },
   {
-    id: "2",
+    id: "4",
     brand: "Porsche",
     model: "Taycan",
     seats: 4,
@@ -52,7 +52,7 @@ export const mockCars: Car[] = [
     imageUrl: "/cars/car sample.jpg",
   },
   {
-    id: "1",
+    id: "5",
     brand: "Porsche",
     model: "911 Carrera GTS",
     seats: 2,
@@ -62,7 +62,7 @@ export const mockCars: Car[] = [
     imageUrl: "/cars/car sample.jpg",
   },
   {
-    id: "2",
+    id: "6",
     brand: "Porsche",
     model: "Taycan",
     seats: 4,
