@@ -1,4 +1,5 @@
-// src/app/cars/[id]/page.tsx
+"use client";
+
 import { notFound, useParams } from "next/navigation";
 import { Gallery } from "@/components/cars/detail/Gallery";
 import { CarOverview } from "@/components/cars/detail/CarOverview";
