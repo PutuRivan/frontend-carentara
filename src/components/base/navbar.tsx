@@ -1,4 +1,3 @@
-// src/components/base/Navbar.tsx
 "use client";
 
 import Link from "next/link";
@@ -13,7 +12,6 @@ const NAV_LINKS = [
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
-
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -62,11 +60,7 @@ export function Navbar() {
               {/* Logo */}
               <Link
                 href="/"
-                className={`text-2xl font-bold ${
-                  scrolled ? "text-gray-800" : "text-neutral-300"
-                }`}
-                className={`text-2xl font-bold ${scrolled ? "text-gray-800" : "text-white"
-                  }`}
+                className={`text-2xl font-bold ${scrolled ? "text-gray-800" : "text-neutral-300"}`}
               >
                 Carentara
               </Link>

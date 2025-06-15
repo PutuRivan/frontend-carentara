@@ -3,7 +3,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export function Gallery({ images }: { images: string[] }) {
@@ -59,9 +59,8 @@ export function Gallery({ images }: { images: string[] }) {
           <button
             key={i}
             onClick={() => setIndex(i)}
-            className={`h-2 w-2 rounded-full transition-colors ${
-              i === index ? "bg-white" : "bg-white/50"
-            }`}
+            className={`h-2 w-2 rounded-full transition-colors ${i === index ? "bg-white" : "bg-white/50"
+              }`}
           />
         ))}
       </div>

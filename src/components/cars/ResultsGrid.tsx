@@ -6,8 +6,7 @@ import { CarCard } from "./CarCard";
 import { Car, mockCars } from "@/data/sample/mockCars";
 import { motion, AnimatePresence } from "framer-motion";
 import { Spinner } from "@/components/ui/selfmade/spinner"; // assume you have a Spinner component
-import { useQuery } from "@tanstack/react-query";
-// Simulate paginated API: returns next `pageSize` cars after `offset`
+
 function fetchCars(offset: number, pageSize: number): Promise<Car[]> {
   return new Promise((resolve) => {
     setTimeout(() => {
