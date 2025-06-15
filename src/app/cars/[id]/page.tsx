@@ -1,5 +1,5 @@
 // src/app/cars/[id]/page.tsx
-import { notFound } from "next/navigation";
+import { notFound, useParams } from "next/navigation";
 import { Gallery } from "@/components/cars/detail/Gallery";
 import { CarOverview } from "@/components/cars/detail/CarOverview";
 import { BookingForm } from "@/components/cars/detail/BookingForm";
@@ -7,12 +7,9 @@ import { SpecsTable } from "@/components/cars/detail/SpecsTable";
 import { Reviews } from "@/components/cars/detail/Reviews";
 import { mockCars } from "@/data/sample/mockCars";
 
-interface Params {
-  params: { id: string };
-}
 
-export default function CarDetailPage({ params }: Params) {
-  const { id } = params;
+export default function CarDetailPage() {
+  const { id } = useParams()
   const car = mockCars.find((c) => c.id === id);
 
   if (!car) {
