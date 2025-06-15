@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Car, User, Star, Settings2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 // Enhanced sample data for top picks
 const topPicks = [
@@ -108,7 +109,7 @@ const item = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } };
 
 export function TopPicksSection() {
   return (
-    <section className="max-w-9/10 mx-auto">
+    <section className="max-w-9/10 pt-12 mx-auto">
       <h2 className="text-3xl font-bold mb-2 text-start">
         Top picks vehicle this month
       </h2>
@@ -124,7 +125,7 @@ export function TopPicksSection() {
       >
         {topPicks.map((car) => (
           <motion.div key={car.id} variants={item}>
-            <Card className="relative overflow-hidden hover:shadow-lg transition-shadow">
+            <Card className="relative overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
               {/* Category badge */}
               <span className="absolute top-3 left-3 bg-white/80 text-gray-800 text-xs font-medium px-2 py-1 rounded-full shadow">
                 {car.category}
@@ -173,7 +174,11 @@ export function TopPicksSection() {
       </motion.div>
 
       <div className="text-center mt-8">
-        <Button variant="outline">See More</Button>
+        <Button variant="outline">
+          <Link href="/cars">
+            See More
+          </Link>
+        </Button>
       </div>
     </section>
   );

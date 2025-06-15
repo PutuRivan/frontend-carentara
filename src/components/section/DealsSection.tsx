@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { BadgePercent } from 'lucide-react'
 import Image from "next/image";
-import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
+import { ChevronRightIcon } from "lucide-react";
 
 const promos = [
   {
@@ -39,22 +39,22 @@ export function DealsSection() {
         <Button
           variant="ghost"
           size="sm"
-          className="flex items-center gap-1"
+          className="flex items-center gap-1 cursor-pointer"
           onClick={() => scroll(300)}
         >
-            See All
+          See All
           <ChevronRightIcon size={16} />
         </Button>
       </div>
 
       <div
         ref={containerRef}
-        className="flex grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-2 space-x-6 overflow-x-auto auto-cols-max snap-x snap-mandatory"
+        className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-2 space-x-6 overflow-x-auto auto-cols-max snap-x snap-mandatory"
       >
         {promos.map((p) => (
           <motion.div
             key={p.id}
-            className="min-w-[640px] snap-start flex-shrink-0 relative rounded-lg overflow-hidden"
+            className="min-w-[640px] snap-start flex-shrink-0 relative rounded-lg overflow-hidden cursor-pointer"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: p.id * 0.2 }}
@@ -69,7 +69,7 @@ export function DealsSection() {
             <div className="absolute inset-0 bg-black/30 p-4 flex flex-col justify-between">
               <div className="flex justify-between items-center">
                 <div>
-                  <BadgePercent color="#facc15"/>
+                  <BadgePercent color="#facc15" />
                 </div>
                 <span className="text-sm font-semibold text-white">{`Valid only on ${p.valid}`}</span>
               </div>
@@ -85,5 +85,5 @@ export function DealsSection() {
         ))}
       </div>
     </section>
-);
+  );
 }

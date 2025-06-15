@@ -4,6 +4,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
+import Link from "next/link";
 
 const contactMethods = [
   {
@@ -51,18 +52,18 @@ function ContactCard({
       <Icon size={48} className="text-neutral-900 mb-4" />
       <h4 className="text-lg font-semibold mb-2">{title}</h4>
       <p className="text-center text-sm text-neutral-700 mb-3">{description}</p>
-      <a
+      <Link
         href={
           title === "Email Us"
             ? `mailto:${contact}`
             : title === "Call Us"
-            ? `tel:${contact}`
-            : "#"
+              ? `tel:${contact}`
+              : "#"
         }
         className="text-neutral-500 font-medium hover:underline"
       >
         {contact}
-      </a>
+      </Link>
     </motion.div>
   );
 }
@@ -98,7 +99,7 @@ export default function ContactPage() {
       <section className="grid grid-cols-1 sm:grid-cols-3 gap-8">
         {contactMethods.map((method, idx) => (
           <ContactCard
-            key={method.id}
+            key={idx}
             Icon={method.Icon}
             title={method.title}
             description={method.description}
