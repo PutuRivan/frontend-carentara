@@ -87,7 +87,7 @@ export default function AuthProvider({ children }: { children: React.ReactNode }
       } else if (data.data.role === 'OWNER') {
         router.push('/owner')
       } else {
-        router.push('/user')
+        router.push('/')
       }
 
     } catch (error) {

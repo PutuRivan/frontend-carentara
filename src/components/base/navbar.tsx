@@ -11,7 +11,6 @@ import { CgProfile } from "react-icons/cg";
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Cars", href: "/cars" },
-  { label: "Your Car", href: "/owner" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
