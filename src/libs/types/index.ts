@@ -28,19 +28,9 @@ export const SignUpSchema = z.object({
 export type TRegisterSchema = z.infer<typeof SignUpSchema>;
 
 export type TUser = {
-  ID_User: string;
-  ID_UserLevel: number;
-  Nama_User: string;
-  NIM_User: string;
-  Email_User: string;
-  Password_User: string;
-  isVerified: boolean;
-  createdAt: string;
-  updatedAt: string;
-  UserLevel: {
-    ID_UserLevel: number;
-    level_name: string;
-    createdAt: string;
-    updatedAt: string;
-  };
+  id: string;
+  email: string;
+  name: string;
+  role: string;
+  phoneNumber: string;
 };

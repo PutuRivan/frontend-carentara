@@ -5,6 +5,8 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu as MenuIcon, X } from "lucide-react";
+import { useAuth } from "@/context/auth-context";
+import { CgProfile } from "react-icons/cg";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -20,7 +22,9 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
   const prevScroll = useRef(0);
+  const { isAuthenticated, user } = useAuth()
 
+  console.log({ isAuthenticated })
   // Shadow & blur after 20px
   useEffect(() => {
     return scrollY.onChange((y) => setScrolled(y > 20));
@@ -84,43 +88,73 @@ export function Navbar() {
               </ul>
 
               {/* Desktop CTA */}
-              <div className="hidden md:flex items-center space-x-4">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className={`
-                        hover:text-neutral-600 transition-colors
-                        ${scrolled ? "text-gray-800" : "text-white"}
-                      `}
-                >
-                  <Link href={"/login"}>
-                    Log In
-                  </Link>
-                </Button>
 
-                <div
-                  className={`
-                        hover:text-accent transition-colors
-                        ${scrolled ? "text-gray-800" : "text-white"}
-                      `}
-                >
-                  {" "}
-                  |{" "}
+              {!isAuthenticated && (
+                <div className="hidden md:flex items-center space-x-4">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className={` hover:text-neutral-600 transition-colors ${scrolled ? "text-gray-800" : "text-white"}`}
+                  >
+                    <Link href="/login">Log In</Link>
+                  </Button>
+
+                  <div
+                    className={` hover:text-accent transition-colors ${scrolled ? "text-gray-800" : "text-white"}`}
+                  >
+                    |
+                  </div>
+
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className={`
+        hover:text-neutral-800 transition-colors
+        ${scrolled ? "text-gray-800" : "text-white"}
+      `}
+                  >
+                    <Link href="/register">Sign Up</Link>
+                  </Button>
                 </div>
+              )}
 
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className={`
-                        hover:text-neutral-800 transition-colors
-                        ${scrolled ? "text-gray-800" : "text-white"}
-                      `}
-                >
-                  <Link href={"/register"}>
-                    Sign Up
-                  </Link>
-                </Button>
-              </div>
+              {isAuthenticated && user?.role === "ADMIN" && (
+                <div className="hidden md:flex items-center space-x-4">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className={`hover:text-neutral-600 transition-colors ${scrolled ? "text-gray-800" : "text-white"}`}
+                  >
+                    <Link href="/admin">Admin</Link>
+                  </Button>
+                </div>
+              )}
+
+              {isAuthenticated && user?.role === "OWNER" && (
+                <div className="hidden md:flex items-center space-x-4">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className={`hover:text-neutral-600 transition-colors ${scrolled ? "text-gray-800" : "text-white"}`}
+                  >
+                    <Link href="/owner">Owner</Link>
+                  </Button>
+                </div>
+              )}
+
+              {isAuthenticated && user?.role === "USER" && (
+                <div className="hidden md:flex items-center space-x-4">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className={`hover:text-neutral-600 transition-colors ${scrolled ? "text-gray-800" : "text-white"}`}
+                  >
+                    <Link href="/user">
+                      <CgProfile size={24} />
+                    </Link>
+                  </Button>
+                </div>
+              )}
 
               {/* Mobile Hamburger */}
               <button
@@ -177,12 +211,15 @@ export function Navbar() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-auto flex space-x-2 pt-6 border-t">
-                <Button variant="outline" className="flex-1">
-                  Log In
-                </Button>
-                <Button className="flex-1">Sign Up</Button>
-              </div>
+
+              {!isAuthenticated && (
+                <div className="mt-auto flex space-x-2 pt-6 border-t">
+                  <Button variant="outline" className="flex-1">
+                    Log In
+                  </Button>
+                  <Button className="flex-1">Sign Up</Button>
+                </div>
+              )}
             </motion.div>
           </motion.aside>
         )}

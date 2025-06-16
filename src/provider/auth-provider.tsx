@@ -75,8 +75,8 @@ export default function AuthProvider({ children }: { children: React.ReactNode }
         throw new Error('Invalid credentials')
       }
 
-      setIsAuthenticated(true)
       setLoading(false)
+      setIsAuthenticated(true)
       toast.success(data.message)
       setUser(data.data)
       setAccessTokenInCookie(data.token)

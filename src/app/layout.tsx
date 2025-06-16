@@ -1,24 +1,28 @@
-import './globals.css'
-import { Navbar } from '@/components/base/navbar'
-import { Footer } from '@/components/base/footer'
-import AuthProvider from '@/provider/auth-provider'
-import { Toaster } from 'sonner'
+import type { Metadata } from 'next';
+import './globals.css';
+import Providers from '@/provider';
+import { Toaster } from 'sonner';
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const metadata: Metadata = {
+  title: 'Dignition',
+  description:
+    'Dignition is a Learning Management System developed by KSM Android UPNVJ to manage Study Club resources.',
+  icons: {
+    icon: '/favicon.ico',
+  },
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en">
-      <head>
-        <title>Carentara</title>
-        <meta name="description" content="Bridging car-owners and borrowers with ease." />
-      </head>
-      <body className="flex flex-col min-h-screen" cz-shortcut-listen="true">
-        <AuthProvider>
-          <Navbar />
-          {children}
-          <Toaster />
-          <Footer />
-        </AuthProvider>
+    <html lang='en'>
+      <body className={""}>
+        <Providers>{children}</Providers>
+        <Toaster position='top-right' />
       </body>
     </html>
-  )
+  );
 }
