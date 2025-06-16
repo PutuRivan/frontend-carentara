@@ -8,6 +8,13 @@ import { Button } from "@/components/ui/button";
 import { FcGoogle } from "react-icons/fc";
 
 export default function RegisterPage() {
+  const handleGoogleRegister = async () => {
+    try {
+      window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/auth/google`
+    } catch (error) {
+      console.error("Google sign-in error:", error);
+    }
+  }
   return (
     <div className="flex h-screen overflow-hidden">
       <motion.div
@@ -17,7 +24,7 @@ export default function RegisterPage() {
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <Image
-          src="/auth/car-driving.jpg"      
+          src="/auth/car-driving.jpg"
           alt="Travel horizon"
           fill
           className="object-cover"
@@ -76,7 +83,8 @@ export default function RegisterPage() {
 
           <Button
             variant="outline"
-            className="w-full flex items-center justify-center gap-2 mb-2 text-black"
+            className="w-full flex items-center justify-center gap-2 mb-2 text-black cursor-pointer"
+            onClick={handleGoogleRegister}
           >
             <FcGoogle size={20} />
             Sign up with Google

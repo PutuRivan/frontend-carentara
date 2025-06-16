@@ -8,6 +8,13 @@ import { Button } from "@/components/ui/button";
 import { FcGoogle } from "react-icons/fc";
 
 export default function LoginPage() {
+  const handleGoogleLogin = async () => {
+    try {
+      window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/auth/google`
+    } catch (error) {
+      console.error("Google sign-in error:", error);
+    }
+  }
   return (
     <div className="flex h-screen overflow-hidden">
       <motion.div
@@ -67,10 +74,11 @@ export default function LoginPage() {
             <span className="px-2 text-black">or</span>
             <div className="flex-1 h-px bg-white/50" />
           </div>
-   
+
           <Button
             variant="outline"
             className="w-full flex items-center justify-center gap-2 mb-4 text-black"
+            onClick={handleGoogleLogin}
           >
             <FcGoogle size={20} />
             Sign in with Google
