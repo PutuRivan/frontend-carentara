@@ -24,18 +24,16 @@ type RentForm = z.infer<typeof rentSchema>;
 
 export default function RentDetailsPage() {
   const router = useRouter();
-  const { id: carId } = useParams() as { id: string };      // ← path segment
-  const params       = useSearchParams();                   // ← query string
+  const { id: carId } = useParams() as { id: string };
+  const params       = useSearchParams();
   const start        = params.get("start") || "";
   const end          = params.get("end")   || "";
 
-  // Find the car by its path-based ID
   const car = mockCars.find((c) => c.id === carId) as Car;
   if (!car) {
     return <p className="p-8 mt-16 text-center text-red-600">Car not found.</p>;
   }
 
-  // Calculate days & total
   const days = useMemo(() => {
     if (!start || !end) return 1;
     const d1 = new Date(start), d2 = new Date(end);
@@ -44,7 +42,6 @@ export default function RentDetailsPage() {
   }, [start, end]);
   const total = days * car.pricePerDay;
 
-  // Form setup
   const {
     control,
     handleSubmit,
@@ -59,7 +56,6 @@ export default function RentDetailsPage() {
     },
   });
 
-  // On submit, POST booking and navigate to confirmation
   const onSubmit = async (data: RentForm) => {
     const payload = { carId, start, end, days, total, ...data };
 
@@ -70,7 +66,10 @@ export default function RentDetailsPage() {
     });
     const json = await res.json();
     if (res.ok) {
-      router.push(`/cars/${carId}/confirmation?bkg=${json.bookingId}`);
+      // Navigate to the nested confirmation route
+      router.push(
+        `/cars/${carId}/rent/confirmation?bkg=${json.bookingId}`
+      );
     } else {
       alert("Booking failed: " + (json.error || res.statusText));
     }
@@ -78,12 +77,10 @@ export default function RentDetailsPage() {
 
   return (
     <main className="max-w-lg mx-auto mt-16 px-6 py-12 space-y-8">
-      {/* Step indicator */}
       <div className="text-sm text-gray-600">
         Step <span className="font-semibold">2</span> of <span className="font-semibold">3</span>: Your Details & Payment
       </div>
 
-      {/* Booking summary */}
       <div className="p-4 bg-gray-50 rounded-lg space-y-1">
         <h2 className="font-semibold">Booking Summary</h2>
         <p>{car.brand} {car.model}</p>
@@ -93,9 +90,7 @@ export default function RentDetailsPage() {
         <p className="font-bold">${total.toFixed(2)} total</p>
       </div>
 
-      {/* Rent details form */}
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        {/* Full Name */}
         <div>
           <label className="block text-sm font-medium mb-1">Full Name</label>
           <Controller
@@ -110,7 +105,6 @@ export default function RentDetailsPage() {
           )}
         </div>
 
-        {/* Contact Number */}
         <div>
           <label className="block text-sm font-medium mb-1">Contact Number</label>
           <Controller
@@ -125,7 +119,6 @@ export default function RentDetailsPage() {
           )}
         </div>
 
-        {/* Pickup Location */}
         <div>
           <label className="block text-sm font-medium mb-1">Pickup Location</label>
           <Controller
@@ -140,7 +133,6 @@ export default function RentDetailsPage() {
           )}
         </div>
 
-        {/* Payment Method */}
         <div>
           <label className="block text-sm font-medium mb-1">Payment Method</label>
           <Controller
@@ -162,7 +154,6 @@ export default function RentDetailsPage() {
           )}
         </div>
 
-        {/* Confirm & Pay */}
         <Button type="submit" disabled={isSubmitting} className="w-full">
           {isSubmitting ? "Processing…" : "Confirm & Pay"}
         </Button>

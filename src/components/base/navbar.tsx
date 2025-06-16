@@ -9,6 +9,7 @@ import { Menu as MenuIcon, X } from "lucide-react";
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Cars", href: "/cars" },
+  { label: "Your Car", href: "/owner" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -60,7 +61,7 @@ export function Navbar() {
               {/* Logo */}
               <Link
                 href="/"
-                className={`text-2xl font-bold ${scrolled ? "text-gray-800" : "text-neutral-300"}`}
+                className={`text-2xl font-bold ${scrolled ? "text-gray-800" : "text-neutral-500"}`}
               >
                 Carentara
               </Link>
@@ -73,7 +74,7 @@ export function Navbar() {
                       href={link.href}
                       className={`
                         hover:underline transition-colors
-                        ${scrolled ? "text-gray-800" : "text-neutral-300"}
+                        ${scrolled ? "text-gray-800" : "text-neutral-500"}
                       `}
                     >
                       {link.label}
