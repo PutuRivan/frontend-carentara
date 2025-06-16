@@ -28,6 +28,7 @@ export default function AuthProvider({ children }: { children: React.ReactNode }
 
   const signUp = async (values: TRegisterSchema) => {
     try {
+      setLoading(true)
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/register`, {
         method: "POST",
         headers: {
@@ -47,7 +48,7 @@ export default function AuthProvider({ children }: { children: React.ReactNode }
       }
 
       toast.success(data.message)
-
+      setLoading(false)
       router.push('/login')
     } catch (error) {
       toast.error((error as Error).message)
@@ -56,6 +57,7 @@ export default function AuthProvider({ children }: { children: React.ReactNode }
 
   const signIn = async (values: TSigninSchema) => {
     try {
+      setLoading(true)
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
         method: "POST",
         headers: {
@@ -73,6 +75,8 @@ export default function AuthProvider({ children }: { children: React.ReactNode }
         throw new Error('Invalid credentials')
       }
 
+      setIsAuthenticated(true)
+      setLoading(false)
       toast.success(data.message)
       setUser(data.data)
       setAccessTokenInCookie(data.token)

@@ -1,8 +1,7 @@
 "use client"
 
-import { TCredential, TRegisterSchema, TSigninSchema, TUser } from "@/libs/types";
+import { TRegisterSchema, TSigninSchema, TUser } from "@/libs/types";
 import { createContext, useContext } from "react";
-import { UseFormHandleSubmit, UseFormRegister } from "react-hook-form";
 
 export const AuthContext = createContext({} as {
   user: TUser | null,

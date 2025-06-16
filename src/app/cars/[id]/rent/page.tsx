@@ -1,4 +1,3 @@
-// src/app/cars/[id]/rent/page.tsx
 "use client";
 
 import { useRouter, useSearchParams, useParams } from "next/navigation";
@@ -12,10 +11,10 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { mockCars, Car } from "@/data/sample/mockCars";
 
 const rentSchema = z.object({
-  fullName:       z.string().min(2, "Please enter your full name."),
-  contact:        z.string().min(5, "Please enter your contact number."),
+  fullName: z.string().min(2, "Please enter your full name."),
+  contact: z.string().min(5, "Please enter your contact number."),
   pickupLocation: z.string().min(3, "Please enter a pickup location."),
-  paymentMethod:  z.enum(["card", "paypal"], {
+  paymentMethod: z.enum(["card", "paypal"], {
     errorMap: () => ({ message: "Select a payment method." }),
   }),
 });
@@ -25,14 +24,12 @@ type RentForm = z.infer<typeof rentSchema>;
 export default function RentDetailsPage() {
   const router = useRouter();
   const { id: carId } = useParams() as { id: string };
-  const params       = useSearchParams();
-  const start        = params.get("start") || "";
-  const end          = params.get("end")   || "";
+  const params = useSearchParams();
+  const start = params.get("start") || "";
+  const end = params.get("end") || "";
 
   const car = mockCars.find((c) => c.id === carId) as Car;
-  if (!car) {
-    return <p className="p-8 mt-16 text-center text-red-600">Car not found.</p>;
-  }
+
 
   const days = useMemo(() => {
     if (!start || !end) return 1;
@@ -49,20 +46,24 @@ export default function RentDetailsPage() {
   } = useForm<RentForm>({
     resolver: zodResolver(rentSchema),
     defaultValues: {
-      fullName:       "",
-      contact:        "",
+      fullName: "",
+      contact: "",
       pickupLocation: "",
-      paymentMethod:  "card",
+      paymentMethod: "card",
     },
   });
+
+  if (!car) {
+    return <p className="p-8 mt-16 text-center text-red-600">Car not found.</p>;
+  }
 
   const onSubmit = async (data: RentForm) => {
     const payload = { carId, start, end, days, total, ...data };
 
     const res = await fetch("/api/bookings", {
-      method:  "POST",
+      method: "POST",
       headers: { "Content-Type": "application/json" },
-      body:    JSON.stringify(payload),
+      body: JSON.stringify(payload),
     });
     const json = await res.json();
     if (res.ok) {

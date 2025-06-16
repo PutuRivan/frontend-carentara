@@ -72,7 +72,7 @@ export default function ConfirmationPage() {
           Status: {booking.status === "ongoing" ? "Ongoing" : "Rented"}
         </span>
         {booking.status === "ongoing" && (
-          <Button onClick={markPickedUp}>I've Picked Up the Car</Button>
+          <Button onClick={markPickedUp}>I&apos;ve Picked Up the Car</Button>
         )}
       </div>
 
