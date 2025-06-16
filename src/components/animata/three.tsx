@@ -1,7 +1,7 @@
 import { CarFront, Utensils } from "lucide-react";
 
 import ExpenseTracker, { spendingTrackerProps } from "@/components/animata/expense-tracker";
-import { cn } from "@/lib/utils";
+import { cn } from "@/libs/utils";
 
 function BentoCard({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
