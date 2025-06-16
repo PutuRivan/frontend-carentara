@@ -15,6 +15,8 @@ import {
 import { Input } from "@/components/ui/input"
 import { useState } from "react";
 import { EyeClosedIcon, EyeIcon } from "lucide-react";
+import { useAuth } from "@/context/auth-context";
+import { TSigninSchema } from "@/libs/types";
 
 const formSchema = z.object({
   email: z.string().email({
@@ -27,8 +29,8 @@ const formSchema = z.object({
 
 export default function LoginForm() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
-
-  const form = useForm<z.infer<typeof formSchema>>({
+  const { signIn } = useAuth()
+  const form = useForm<TSigninSchema>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       email: "",
@@ -37,7 +39,7 @@ export default function LoginForm() {
   })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
+    signIn(values)
   }
 
   return (
@@ -75,7 +77,7 @@ export default function LoginForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full">Submit</Button>
+        <Button type="submit" className="w-full cursor-pointer">Submit</Button>
       </form>
     </Form>
   )
