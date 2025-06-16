@@ -10,7 +10,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { format } from "date-fns";
 import DecryptedText from "@/components/react-bits/TextAnimations/DecryptedText/DecryptedText"; // subtle ripple effect on email
 import { Spinner } from "@/components/ui/selfmade/spinner";
 
@@ -126,25 +125,6 @@ export default function ProfilePage() {
             <Input value={user.role} readOnly className="mt-1 capitalize" />
           </div>
 
-          {/* Created/Updated */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <Label>Created At</Label>
-              <Input
-                value={format(new Date(user.createdAt), "PPpp")}
-                readOnly
-                className="mt-1"
-              />
-            </div>
-            <div>
-              <Label>Updated At</Label>
-              <Input
-                value={format(new Date(user.updatedAt), "PPpp")}
-                readOnly
-                className="mt-1"
-              />
-            </div>
-          </div>
         </CardContent>
       </Card>
 
