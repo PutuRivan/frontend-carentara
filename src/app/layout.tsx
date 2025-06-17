@@ -4,9 +4,9 @@ import Providers from '@/provider';
 import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
-  title: 'Dignition',
+  title: 'Carentara',
   description:
-    'Dignition is a Learning Management System developed by KSM Android UPNVJ to manage Study Club resources.',
+    'Carentara',
   icons: {
     icon: '/favicon.ico',
   },
