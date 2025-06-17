@@ -13,16 +13,22 @@ const CarUpdateSchema = z.object({
   imageUrl:    z.string().url(),
 });
 
-export async function GET(_: Request, { params }: { params: { id: string } }) {
-  const car = mockCars.find((c) => c.id === params.id);
+export async function GET(request: Request, context: { params: { id: string } }) {
+  const { id } = context.params;
+
+  const car = mockCars.find((c) => c.id === id);
+
   if (!car) {
     return NextResponse.json({ success: false, error: "Not found" }, { status: 404 });
   }
+
   return NextResponse.json({ success: true, car });
 }
 
-export async function PUT(req: Request, { params }: { params: { id: string } }) {
+export async function PUT(req: Request, context: { params: { id: string } }) {
   try {
+    const { id } = context.params;
+
     const json = await req.json();
     const data = CarUpdateSchema.parse({
       ...json,
@@ -31,14 +37,17 @@ export async function PUT(req: Request, { params }: { params: { id: string } }) 
       pricePerDay: Number(json.pricePerDay),
     });
 
-    const idx = mockCars.findIndex((c) => c.id === params.id);
+    const idx = mockCars.findIndex((c) => c.id === id);
     if (idx === -1) {
       return NextResponse.json({ success: false, error: "Not found" }, { status: 404 });
     }
 
     mockCars[idx] = { ...mockCars[idx], ...data };
+
     return NextResponse.json({ success: true, car: mockCars[idx] });
-  } catch (err: any) {
-    return NextResponse.json({ success: false, error: err.message }, { status: 400 });
+
+  } catch (err: unknown) {
+    const errorMessage = err instanceof Error ? err.message : 'Unknown error';
+    return NextResponse.json({ success: false, error: errorMessage }, { status: 400 });
   }
 }
