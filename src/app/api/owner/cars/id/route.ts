@@ -1,5 +1,4 @@
-// src/app/api/owner/cars/[id]/route.ts
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { mockCars } from "@/data/sample/mockCars";
 
@@ -13,7 +12,12 @@ const CarUpdateSchema = z.object({
   imageUrl:    z.string().url(),
 });
 
-export async function GET(request: Request, context: { params: { id: string } }) {
+// Type context biar resmi:
+type Context = {
+  params: { id: string };
+};
+
+export async function GET(request: NextRequest, context: Context) {
   const { id } = context.params;
 
   const car = mockCars.find((c) => c.id === id);
@@ -25,7 +29,7 @@ export async function GET(request: Request, context: { params: { id: string } })
   return NextResponse.json({ success: true, car });
 }
 
-export async function PUT(req: Request, context: { params: { id: string } }) {
+export async function PUT(req: NextRequest, context: Context) {
   try {
     const { id } = context.params;
 
