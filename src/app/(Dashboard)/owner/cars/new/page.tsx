@@ -67,7 +67,7 @@ export default function AddCarPage() {
       district:     "",
       street:       "",
       postalCode:   "",
-      images:       null as any,
+      images:       [],
     },
   });
 
@@ -90,8 +90,8 @@ export default function AddCarPage() {
       if (!res.ok) throw new Error(json.error || res.statusText);
       toast.success("Car added!");
       router.push("/owner/cars");
-    } catch (err: any) {
-      toast.error("Failed to add car: " + err.message);
+    } catch (err) {
+      toast.error("Failed to add car: " + err);
     }
   }
 

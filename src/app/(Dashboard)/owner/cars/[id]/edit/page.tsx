@@ -89,9 +89,9 @@ export default function EditCarPage() {
       }
       toast.success("Car updated!");
       router.push("/owner/cars");
-    } catch (err: any) {
+    } catch (err) {
       console.error("Update failed:", err);
-      toast.error("Update failed: " + err.message);
+      // toast.error("Update failed: " + err.message);
     }
   }
 

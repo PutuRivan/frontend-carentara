@@ -24,6 +24,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import Image from "next/image";
 
 export default function OwnerCarsPage() {
   const [cars, setCars] = useState<Car[]>([]);
@@ -74,7 +75,7 @@ export default function OwnerCarsPage() {
               <Card className="overflow-hidden">
                 <CardHeader className="p-0">
                   <div className="relative h-40 w-full">
-                    <img
+                    <Image
                       src={car.imageUrl}
                       alt={`${car.brand} ${car.model}`}
                       className="object-cover w-full h-full"
